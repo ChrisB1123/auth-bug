@@ -30,18 +30,6 @@ export const config = {
     async session({ session, token, user }) {
       if (session.user && session.user.email) {
 
-        /*const url = process.env.HOST + '/api/user?' + new URLSearchParams({
-          email: session.user.email
-        })
-
-        const userResponse = await fetch(url)
-        const foundUser: User = await userResponse.json()
-
-        if (foundUser) {
-          session.user.id = foundUser.id;
-        }
-        session.user.address = token.accessToken as string*/
-
         session.user.id = token.userId as string
         return session
       } else {
